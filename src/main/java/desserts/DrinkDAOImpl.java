@@ -16,7 +16,7 @@ public class DrinkDAOImpl implements DrinkDAO {
     public DrinkDAOImpl() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drinks?createDatabaseIfNotExist=true", "root", "root123");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drinks?createDatabaseIfNotExist=true", "root", "root");
         } catch (ClassNotFoundException e) {
             System.out.println("Driver not found");
         } catch (SQLException e) {
