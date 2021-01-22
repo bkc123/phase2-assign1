@@ -2,9 +2,9 @@ package ecommerce;
 
 import javax.persistence.*;
 
-@Table(name = "laptop")
+@Table(name = "product")
 @Entity
-public class LaptopEntity {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

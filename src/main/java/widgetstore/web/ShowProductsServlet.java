@@ -25,12 +25,13 @@ public class ShowProductsServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         out.println("<form action='' method='POST'>");
-        out.println("<label>Enter Dessert Name: <input type='text' name='dessert-name'></input></label>");
-        out.println("<label>Enter If Good: <input type='radio' name='dessert-good' value='0' />No <input type='radio' name='dessert-good' value='1' />Yes</label>");
-        out.println("<input type='submit'>Create Dessert</input>");
+        out.println("<h1>Welcome to online store</h1>");
+        out.println("<label>Enter Product Name: <input type='text' name='product-name'></input></label>");
+        out.println("  <label>Enter If Good: <input type='radio' name='product-good' value='0' />No <input type='radio' name='product-good' value='1' />Yes</label>");
+        out.println("\n<input type='submit'>Create product</input>");
         out.println("</form>");
 
-        out.println("<h2>Desserts</h2>");
+        out.println("<h2>Products</h2>");
         for (DessertDTO dessert: dessertDTO.getAll()) {
             out.println("<p>" + dessert.getId() + ": " + dessert.getName() + " It is good:" + dessert.isGood() + "</p>");
         }
@@ -38,8 +39,8 @@ public class ShowProductsServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("dessert-name");
-        String good = request.getParameter("dessert-good");
+        String name = request.getParameter("product-name");
+        String good = request.getParameter("product-good");
         Boolean isGood = Boolean.parseBoolean(good);
         dessertDTO.create(new DessertDTO(
                 null,
@@ -48,6 +49,6 @@ public class ShowProductsServlet extends HttpServlet {
         ));
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("Dessert was created");
+        out.println("Product was created");
     }
 }

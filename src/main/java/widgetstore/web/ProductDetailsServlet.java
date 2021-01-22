@@ -1,7 +1,7 @@
 package widgetstore.web;
 
 import desserts.*;
-import ecommerce.LaptopEntity;
+import ecommerce.Product;
 import hibernate.HibernateUtils;
 import org.hibernate.Session;
 
@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class LaptopDetailsServlet extends HttpServlet {
+public class ProductDetailsServlet extends HttpServlet {
 
     GenericDAO<DrinkDTO> drinkDAO;
 
-    public LaptopDetailsServlet() {
+    public ProductDetailsServlet() {
         drinkDAO = new DrinkDAOImpl();
     }
 
@@ -24,26 +24,28 @@ public class LaptopDetailsServlet extends HttpServlet {
                       HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        out.println("<h1> Enter product ID for detail inquiry: </h1>");
         out.println("<form action='' method='POST'>");
-        out.println("<label>Enter Product (Laptop) ID: <input type='text' name='laptop-id'></input></label>");
-        out.println("<input type='submit'>Get Details</input>");
+        out.println("<label>Enter Product ID: <input type='text' name='product-id'></input></label>");
+        out.println("<input type='submit'>  Get Details </input>");
         out.println("</form>");
     }
 
     public void doPost(HttpServletRequest request,
           HttpServletResponse response) throws ServletException, IOException {
-        String laptopId = request.getParameter("laptop-id");
+        String productId = request.getParameter("product-id");
         PrintWriter out = response.getWriter();
 
         Session session = HibernateUtils.buildSessionFactory().openSession();
-        LaptopEntity laptopEntity = session.get(
-                LaptopEntity.class,
-                Long.parseLong(laptopId)
+        Product productEntity = session.get(
+                Product.class,
+                Long.parseLong(productId)
         );
-        if (laptopEntity != null) {
-            out.println("Found laptop: " + laptopEntity.getName() + " with price: " + laptopEntity.getPrice());
+        if (productEntity != null) {
+        	
+            out.println("\n The detail for the product you are looking: \n Found product: " + productEntity.getName() + " with price: " + productEntity.getPrice());
         } else {
-            out.println("No laptop found for id: " + laptopId);
+            out.println("Sorry, No product found for id: " + productId);
         }
     }
 

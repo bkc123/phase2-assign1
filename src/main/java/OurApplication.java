@@ -1,6 +1,6 @@
 
 import desserts.*;
-import ecommerce.LaptopEntity;
+import ecommerce.Product;
 import hibernate.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,14 +30,12 @@ public class OurApplication {
                     .openSession();
             hibernateSession.beginTransaction();
 
-  
-
-            /* Insert some laptops */
+            /* Insert some product */
             for (int i = 0; i <= 10; i++) {
-                LaptopEntity laptop = new LaptopEntity();
-                laptop.setName("SomeBook" + i);
-                laptop.setPrice(10F * i);
-                hibernateSession.save(laptop);
+                Product product = new Product();
+                product.setName("iphone" + i);
+                product.setPrice(10F * i);
+                hibernateSession.save(product);
             }
 
             hibernateSession.getTransaction().commit();

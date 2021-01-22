@@ -1,6 +1,6 @@
 package hibernate;
 
-import ecommerce.LaptopEntity;
+import ecommerce.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -16,7 +16,7 @@ public class HibernateUtils {
         /* Telling hibernate where to connect to + what entities are supported */
         Configuration conf = new Configuration();
         //conf.addAnnotatedClass(RobotEntity.class);
-        conf.addAnnotatedClass(LaptopEntity.class);
+        conf.addAnnotatedClass(Product.class);
         conf.configure("hibernate.cfg.xml");
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(

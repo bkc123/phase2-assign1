@@ -14,6 +14,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
+        out.println("<h1>Welcome to online store </h1>");
         out.println("<form action='' method='POST'>");
         out.println("<label>Enter userid: <input type='text' name='userid'></input></label>");
         out.println("<label>Enter password: <input type='password' name='password'></input></label>");
@@ -32,7 +33,7 @@ public class LoginServlet extends HttpServlet {
                     "userid", userId
             );
 
-            resp.sendRedirect("laptop");
+            resp.sendRedirect("product");
         }
         this.doGet(req, resp);
     }

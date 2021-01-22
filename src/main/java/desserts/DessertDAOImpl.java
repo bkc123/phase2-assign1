@@ -113,7 +113,7 @@ public class DessertDAOImpl implements DessertDAO {
                     dessert.setId(generatedKeys.getLong(1));
                     return dessert;
                 } else {
-                    throw new SQLException("Creating dessert failed, no ID obtained.");
+                    throw new SQLException("Creating product failed, no ID obtained.");
                 }
             }
         } catch (SQLException e) {

@@ -1,7 +1,6 @@
 OurApplication.class
 desserts\DessertDAOImpl.class
 desserts\DrinkDAOImpl.class
-ecommerce\LaptopEntity.class
 desserts\DrinkDAO.class
 hibernate\HibernateUtils.class
 widgetstore\web\LoggingFilter.class
@@ -9,9 +8,10 @@ desserts\DrinkDTO.class
 web\MyGenericServlet.class
 desserts\DessertDAO.class
 desserts\GenericDAO.class
+widgetstore\web\ProductDetailsServlet.class
 web\HelloWorldServlet.class
+ecommerce\Product.class
 web\NeedPermissionFilter.class
 widgetstore\web\ShowProductsServlet.class
 web\LoginServlet.class
 desserts\DessertDTO.class
-widgetstore\web\LaptopDetailsServlet.class

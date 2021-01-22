@@ -9,8 +9,8 @@
         <servlet-class>web.MyGenericServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>laptop-details</servlet-name>
-        <servlet-class>widgetstore.web.LaptopDetailsServlet</servlet-class>
+        <servlet-name>product-details</servlet-name>
+        <servlet-class>widgetstore.web.ProductDetailsServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>login</servlet-name>
@@ -18,11 +18,11 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>desserts-servlet</servlet-name>
-        <url-pattern>/desserts</url-pattern>
+        <url-pattern>/products</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>laptop-details</servlet-name>
-        <url-pattern>/laptop</url-pattern>
+        <servlet-name>product-details</servlet-name>
+        <url-pattern>/product</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>vanilla</servlet-name>
@@ -50,6 +50,6 @@
     </filter>
     <filter-mapping>
         <filter-name>need-permission</filter-name>
-        <url-pattern>/laptop</url-pattern>
+        <url-pattern>/product</url-pattern>
     </filter-mapping>
 </web-app>
